@@ -30,15 +30,15 @@
         {
             label1 = new Label();
             label2 = new Label();
-            textBox2 = new TextBox();
+            nazwaTextBox = new TextBox();
             label3 = new Label();
-            textBox3 = new TextBox();
             label4 = new Label();
             label5 = new Label();
             zaakceptujButton = new Button();
             anulujButton = new Button();
             gatunekListBox = new ListBox();
             wlascicielListBox = new ListBox();
+            dataOstWizytyTimePicker = new DateTimePicker();
             SuspendLayout();
             // 
             // label1
@@ -60,12 +60,12 @@
             label2.TabIndex = 1;
             label2.Text = "Nazwa";
             // 
-            // textBox2
+            // nazwaTextBox
             // 
-            textBox2.Location = new Point(116, 92);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(258, 25);
-            textBox2.TabIndex = 4;
+            nazwaTextBox.Location = new Point(116, 92);
+            nazwaTextBox.Name = "nazwaTextBox";
+            nazwaTextBox.Size = new Size(258, 25);
+            nazwaTextBox.TabIndex = 4;
             // 
             // label3
             // 
@@ -75,13 +75,6 @@
             label3.Size = new Size(55, 17);
             label3.TabIndex = 3;
             label3.Text = "Gatunek";
-            // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(116, 192);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(258, 25);
-            textBox3.TabIndex = 6;
             // 
             // label4
             // 
@@ -109,6 +102,7 @@
             zaakceptujButton.TabIndex = 9;
             zaakceptujButton.Text = "Zaakceptuj";
             zaakceptujButton.UseVisualStyleBackColor = true;
+            zaakceptujButton.Click += zaakceptujButton_Click;
             // 
             // anulujButton
             // 
@@ -118,6 +112,7 @@
             anulujButton.TabIndex = 10;
             anulujButton.Text = "Anuluj";
             anulujButton.UseVisualStyleBackColor = true;
+            anulujButton.Click += anulujButton_Click;
             // 
             // gatunekListBox
             // 
@@ -138,23 +133,34 @@
             wlascicielListBox.Size = new Size(258, 21);
             wlascicielListBox.TabIndex = 12;
             // 
+            // dataOstWizytyTimePicker
+            // 
+            dataOstWizytyTimePicker.Location = new Point(116, 189);
+            dataOstWizytyTimePicker.Name = "dataOstWizytyTimePicker";
+            dataOstWizytyTimePicker.Size = new Size(258, 25);
+            dataOstWizytyTimePicker.TabIndex = 13;
+            // 
             // DodajEdytujZwierze
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(423, 372);
+            Controls.Add(dataOstWizytyTimePicker);
             Controls.Add(wlascicielListBox);
             Controls.Add(gatunekListBox);
             Controls.Add(anulujButton);
             Controls.Add(zaakceptujButton);
             Controls.Add(label5);
-            Controls.Add(textBox3);
             Controls.Add(label4);
-            Controls.Add(textBox2);
+            Controls.Add(nazwaTextBox);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "DodajEdytujZwierze";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "DodajEdytujZwierze";
             ResumeLayout(false);
             PerformLayout();
@@ -164,9 +170,8 @@
 
         private Label label1;
         private Label label2;
-        private TextBox textBox2;
+        private TextBox nazwaTextBox;
         private Label label3;
-        private TextBox textBox3;
         private Label label4;
         private TextBox textBox4;
         private Label label5;
@@ -174,5 +179,6 @@
         private Button anulujButton;
         private ListBox gatunekListBox;
         private ListBox wlascicielListBox;
+        private DateTimePicker dataOstWizytyTimePicker;
     }
 }

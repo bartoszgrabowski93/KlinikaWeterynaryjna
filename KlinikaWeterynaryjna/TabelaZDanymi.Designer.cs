@@ -95,6 +95,7 @@
             dodajButton.TabIndex = 3;
             dodajButton.Text = "Dodaj";
             dodajButton.UseVisualStyleBackColor = true;
+            dodajButton.Click += dodajButton_Click;
             // 
             // edytujButton
             // 
@@ -104,6 +105,7 @@
             edytujButton.TabIndex = 4;
             edytujButton.Text = "Edytuj";
             edytujButton.UseVisualStyleBackColor = true;
+            edytujButton.Click += edytujButton_Click;
             // 
             // usunButton
             // 

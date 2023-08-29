@@ -72,7 +72,43 @@ namespace KlinikaWeterynaryjna
 
         private void usunButton_Click(object sender, EventArgs e)
         {
+            if (dataGridView.SelectedRows.Count <= 0)
+            {
+                MessageBox.Show("Proszę wybrać zwierzę do usunięcia");
+                return;
+            }
 
+            Zwierze zwierzeWybrane = dataGridView.SelectedRows[0].DataBoundItem as Zwierze;
+
+            using SqlConnection con = new SqlConnection(Constants.ConnectionString);
+            SqlCommand com = new SqlCommand();
+            com.Connection = con;
+            com.CommandText = "DELETE FROM ZWIERZE WHERE IdZwierze=@IdZwierze;";
+
+            com.Parameters.AddWithValue("@IdZwierze", zwierzeWybrane.IdZwierze);
+            con.Open();
+            com.ExecuteNonQuery();
+            MessageBox.Show("Zwierze nazwane " + zwierzeWybrane.Nazwa + " zostało usunięte ");
+        }
+
+        private void dodajButton_Click(object sender, EventArgs e)
+        {
+            var dodajEdytujOkienko = new DodajEdytujZwierze();
+            dodajEdytujOkienko.Show();
+            PobierzDaneZwierzat();
+        }
+
+        private void edytujButton_Click(object sender, EventArgs e)
+        {
+            if (dataGridView.SelectedRows.Count <= 0)
+            {
+                MessageBox.Show("Proszę wybrać zwierzę do edycji");
+                return;
+            }
+            Zwierze zwierzeWybrane = dataGridView.SelectedRows[0].DataBoundItem as Zwierze;
+
+            var edytujOkienko = new DodajEdytujZwierze();
+            edytujOkienko.Show();
         }
     }
 }

@@ -113,7 +113,9 @@
             Controls.Add(label1);
             Controls.Add(anulujButton);
             Controls.Add(zalogujButton);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             Name = "LoginScreen";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Okno logowania";
             Load += Form1_Load;
             ResumeLayout(false);
