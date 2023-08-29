@@ -36,6 +36,8 @@
             dodajButton = new Button();
             edytujButton = new Button();
             usunButton = new Button();
+            loginLabel = new Label();
+            label3 = new Label();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             SuspendLayout();
@@ -60,7 +62,7 @@
             // zakończToolStripMenuItem
             // 
             zakończToolStripMenuItem.Name = "zakończToolStripMenuItem";
-            zakończToolStripMenuItem.Size = new Size(198, 24);
+            zakończToolStripMenuItem.Size = new Size(129, 24);
             zakończToolStripMenuItem.Text = "Zakończ";
             zakończToolStripMenuItem.Click += zakończToolStripMenuItem_Click;
             // 
@@ -76,6 +78,7 @@
             // 
             // dataGridView
             // 
+            dataGridView.AllowUserToOrderColumns = true;
             dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView.Location = new Point(30, 68);
             dataGridView.Name = "dataGridView";
@@ -110,12 +113,33 @@
             usunButton.TabIndex = 5;
             usunButton.Text = "Usun";
             usunButton.UseVisualStyleBackColor = true;
+            usunButton.Click += usunButton_Click;
+            // 
+            // loginLabel
+            // 
+            loginLabel.AutoSize = true;
+            loginLabel.Location = new Point(463, 43);
+            loginLabel.Name = "loginLabel";
+            loginLabel.Size = new Size(43, 17);
+            loginLabel.TabIndex = 6;
+            loginLabel.Text = "label2";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(346, 43);
+            label3.Name = "label3";
+            label3.Size = new Size(111, 17);
+            label3.TabIndex = 7;
+            label3.Text = "Zalogowano jako:";
             // 
             // TabelaZDanymi
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(544, 402);
+            ClientSize = new Size(544, 412);
+            Controls.Add(label3);
+            Controls.Add(loginLabel);
             Controls.Add(usunButton);
             Controls.Add(edytujButton);
             Controls.Add(dodajButton);
@@ -143,5 +167,7 @@
         private Button dodajButton;
         private Button edytujButton;
         private Button usunButton;
+        private Label loginLabel;
+        private Label label3;
     }
 }

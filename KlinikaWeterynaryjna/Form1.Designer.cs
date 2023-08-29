@@ -45,6 +45,7 @@
             zalogujButton.TabIndex = 0;
             zalogujButton.Text = "Zaloguj";
             zalogujButton.UseVisualStyleBackColor = true;
+            zalogujButton.Click += zalogujButton_Click;
             // 
             // anulujButton
             // 
@@ -54,6 +55,7 @@
             anulujButton.TabIndex = 1;
             anulujButton.Text = "Anuluj";
             anulujButton.UseVisualStyleBackColor = true;
+            anulujButton.Click += anulujButton_Click;
             // 
             // label1
             // 
