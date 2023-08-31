@@ -45,11 +45,11 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(205, 60);
+            label1.Location = new Point(115, 58);
             label1.Name = "label1";
-            label1.Size = new Size(169, 20);
+            label1.Size = new Size(107, 20);
             label1.TabIndex = 0;
-            label1.Text = "Informacje o zwierzeciu:";
+            label1.Text = "Dodaj zwierze:";
             // 
             // label2
             // 

@@ -19,6 +19,15 @@ namespace KlinikaWeterynaryjna
             InitializeComponent();
             ZaladujGatunek();
 
+            if (zwierzeDoEdycji != null)
+            {
+                label1.Text = "Edytuj zwierze:";
+                nazwaTextBox.Text = zwierzeDoEdycji.Nazwa.ToString();
+                gatunekListBox.Text = zwierzeDoEdycji.Gatunek.ToString();
+                dataOstWizytyTextBox.Text = zwierzeDoEdycji.DataOstatniejWizyty.ToString();
+                wlascicielTextBox.Text = zwierzeDoEdycji.IdWlasciciel.ToString();
+            }
+
 
         }
 
@@ -27,7 +36,7 @@ namespace KlinikaWeterynaryjna
             using var con = new SqlConnection(Constants.ConnectionString);
             var com = new SqlCommand();
             com.Connection = con;
-            com.CommandText = "SELECT DISTINCT Gatunek FROM ZWIERZE";
+            com.CommandText = "SELECT DISTINCT Gatunek FROM Zwierzeta";
 
             con.Open();
             SqlDataReader dr = com.ExecuteReader();
@@ -64,16 +73,18 @@ namespace KlinikaWeterynaryjna
             using var con = new SqlConnection(Constants.ConnectionString);
             var com = new SqlCommand();
             com.Connection = con;
-            com.CommandText = "Insert into Zwierze(Nazwa,Gatunek,DataOstWizyty,IdWlasciciela) VALUES (@Nazwa, @Gatunek, @DataOstWizyty, @IdWlasciciela";
+            com.CommandText = "Insert into Zwierzeta(Nazwa,Gatunek,DataOstWizyty,IdWlasciciel) VALUES (@Nazwa, @Gatunek, @DataOstWizyty, @IdWlasciciel";
 
-            
-            int idWlasciciela = Int32.Parse(wlascicielTextBox.Text);
+
+            int idWlasciciela = Convert.ToInt32(wlascicielTextBox.Text);
             var dateTime = DateTime.Parse(dataOstWizytyTextBox.Text);
+            string sqlFormattedDate = dateTime.ToString("yyyy-MM-dd");
+
 
             com.Parameters.AddWithValue("@Nazwa", nazwaTextBox.Text);
             com.Parameters.AddWithValue("@Gatunek", gatunekListBox.Text);
-            com.Parameters.AddWithValue("@DataOstWizyty", dateTime);
-            com.Parameters.AddWithValue("@IdWlasciciela", idWlasciciela);
+            com.Parameters.AddWithValue("@DataOstWizyty", dataOstWizytyTextBox.Text);
+            com.Parameters.AddWithValue("@IdWlasciciel", wlascicielTextBox.Text);
 
             con.Open();
             com.ExecuteNonQuery();

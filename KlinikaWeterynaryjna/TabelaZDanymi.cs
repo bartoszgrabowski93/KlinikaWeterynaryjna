@@ -33,7 +33,7 @@ namespace KlinikaWeterynaryjna
             using SqlConnection con = new SqlConnection(Constants.ConnectionString);
             SqlCommand com = new SqlCommand();
             com.Connection = con;
-            com.CommandText = "Select * from Zwierze";
+            com.CommandText = "Select * from Zwierzeta";
 
             con.Open();
             SqlDataReader dr = com.ExecuteReader();
@@ -41,7 +41,7 @@ namespace KlinikaWeterynaryjna
             var zwierzeta = new List<Zwierze>();
             while (dr.Read() == true)
             {
-                int idZwierze = (int)dr["IdZwierze"];
+                int idZwierze = (int)dr["IdZwierzeta"];
                 string nazwa = dr["Nazwa"].ToString();
                 string gatunek = dr["Gatunek"].ToString();
                 string dataOstatniejWizyty = dr["DataOstWizyty"].ToString();
@@ -83,12 +83,13 @@ namespace KlinikaWeterynaryjna
             using SqlConnection con = new SqlConnection(Constants.ConnectionString);
             SqlCommand com = new SqlCommand();
             com.Connection = con;
-            com.CommandText = "DELETE FROM ZWIERZE WHERE IdZwierze=@IdZwierze;";
+            com.CommandText = "DELETE FROM Zwierzeta WHERE IdZwierzeta=@IdZwierzeta;";
 
-            com.Parameters.AddWithValue("@IdZwierze", zwierzeWybrane.IdZwierze);
+            com.Parameters.AddWithValue("@IdZwierzeta", zwierzeWybrane.IdZwierze);
             con.Open();
             com.ExecuteNonQuery();
             MessageBox.Show("Zwierze nazwane " + zwierzeWybrane.Nazwa + " zostało usunięte ");
+            PobierzDaneZwierzat();
         }
 
         private void dodajButton_Click(object sender, EventArgs e)
@@ -107,8 +108,9 @@ namespace KlinikaWeterynaryjna
             }
             Zwierze zwierzeWybrane = dataGridView.SelectedRows[0].DataBoundItem as Zwierze;
 
-            var edytujOkienko = new DodajEdytujZwierze();
-            edytujOkienko.Show();
+            var edytujOkienko = new DodajEdytujZwierze(zwierzeWybrane);
+            edytujOkienko.ShowDialog();
+            PobierzDaneZwierzat();
         }
     }
 }
