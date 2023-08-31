@@ -95,7 +95,7 @@ namespace KlinikaWeterynaryjna
         private void dodajButton_Click(object sender, EventArgs e)
         {
             var dodajEdytujOkienko = new DodajEdytujZwierze();
-            dodajEdytujOkienko.Show();
+            dodajEdytujOkienko.ShowDialog();
             PobierzDaneZwierzat();
         }
 

@@ -73,7 +73,7 @@ namespace KlinikaWeterynaryjna
             using var con = new SqlConnection(Constants.ConnectionString);
             var com = new SqlCommand();
             com.Connection = con;
-            com.CommandText = "Insert into Zwierzeta(Nazwa,Gatunek,DataOstWizyty,IdWlasciciel) VALUES (@Nazwa, @Gatunek, @DataOstWizyty, @IdWlasciciel";
+            com.CommandText = "Insert into Zwierzeta(Nazwa,Gatunek,DataOstWizyty,IdWlasciciel) VALUES (@Nazwa, @Gatunek, @DataOstWizyty, @IdWlasciciel)";
 
 
             int idWlasciciela = Convert.ToInt32(wlascicielTextBox.Text);
@@ -83,12 +83,13 @@ namespace KlinikaWeterynaryjna
 
             com.Parameters.AddWithValue("@Nazwa", nazwaTextBox.Text);
             com.Parameters.AddWithValue("@Gatunek", gatunekListBox.Text);
-            com.Parameters.AddWithValue("@DataOstWizyty", dataOstWizytyTextBox.Text);
-            com.Parameters.AddWithValue("@IdWlasciciel", wlascicielTextBox.Text);
+            com.Parameters.AddWithValue("@DataOstWizyty", sqlFormattedDate);
+            com.Parameters.AddWithValue("@IdWlasciciel", idWlasciciela);
 
             con.Open();
             com.ExecuteNonQuery();
             Close();
+            
 
         }
 
