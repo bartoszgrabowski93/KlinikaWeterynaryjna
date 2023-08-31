@@ -14,7 +14,7 @@ namespace KlinikaWeterynaryjna
 {
     public partial class DodajEdytujZwierze : Form
     {
-        public DodajEdytujZwierze(Zwierze zwierzeDoEdycji=null)
+        public DodajEdytujZwierze(Zwierze zwierzeDoEdycji = null)
         {
             InitializeComponent();
             ZaladujGatunek();

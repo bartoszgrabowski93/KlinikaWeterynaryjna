@@ -37,8 +37,8 @@
             zaakceptujButton = new Button();
             anulujButton = new Button();
             gatunekListBox = new ListBox();
-            wlascicielListBox = new ListBox();
-            dataOstWizytyTimePicker = new DateTimePicker();
+            textBox1 = new TextBox();
+            textBox2 = new TextBox();
             SuspendLayout();
             // 
             // label1
@@ -124,29 +124,27 @@
             gatunekListBox.TabIndex = 11;
             gatunekListBox.SelectedIndexChanged += listBox1_SelectedIndexChanged;
             // 
-            // wlascicielListBox
+            // textBox1
             // 
-            wlascicielListBox.FormattingEnabled = true;
-            wlascicielListBox.ItemHeight = 17;
-            wlascicielListBox.Location = new Point(116, 245);
-            wlascicielListBox.Name = "wlascicielListBox";
-            wlascicielListBox.Size = new Size(258, 21);
-            wlascicielListBox.TabIndex = 12;
+            textBox1.Location = new Point(116, 192);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(258, 25);
+            textBox1.TabIndex = 12;
             // 
-            // dataOstWizytyTimePicker
+            // textBox2
             // 
-            dataOstWizytyTimePicker.Location = new Point(116, 189);
-            dataOstWizytyTimePicker.Name = "dataOstWizytyTimePicker";
-            dataOstWizytyTimePicker.Size = new Size(258, 25);
-            dataOstWizytyTimePicker.TabIndex = 13;
+            textBox2.Location = new Point(116, 242);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(258, 25);
+            textBox2.TabIndex = 13;
             // 
             // DodajEdytujZwierze
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(423, 372);
-            Controls.Add(dataOstWizytyTimePicker);
-            Controls.Add(wlascicielListBox);
+            Controls.Add(textBox2);
+            Controls.Add(textBox1);
             Controls.Add(gatunekListBox);
             Controls.Add(anulujButton);
             Controls.Add(zaakceptujButton);
@@ -180,5 +178,7 @@
         private ListBox gatunekListBox;
         private ListBox wlascicielListBox;
         private DateTimePicker dataOstWizytyTimePicker;
+        private TextBox textBox1;
+        private TextBox textBox2;
     }
 }
