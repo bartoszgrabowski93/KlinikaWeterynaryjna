@@ -66,10 +66,14 @@ namespace KlinikaWeterynaryjna
             com.Connection = con;
             com.CommandText = "Insert into Zwierze(Nazwa,Gatunek,DataOstWizyty,IdWlasciciela) VALUES (@Nazwa, @Gatunek, @DataOstWizyty, @IdWlasciciela";
 
+            
+            int idWlasciciela = Int32.Parse(wlascicielTextBox.Text);
+            var dateTime = DateTime.Parse(dataOstWizytyTextBox.Text);
+
             com.Parameters.AddWithValue("@Nazwa", nazwaTextBox.Text);
             com.Parameters.AddWithValue("@Gatunek", gatunekListBox.Text);
-            com.Parameters.AddWithValue("@DataOstWizyty", dataOstWizytyTimePicker.Text);
-            com.Parameters.AddWithValue("@IdWlasciciela", wlascicielListBox.Text);
+            com.Parameters.AddWithValue("@DataOstWizyty", dateTime);
+            com.Parameters.AddWithValue("@IdWlasciciela", idWlasciciela);
 
             con.Open();
             com.ExecuteNonQuery();

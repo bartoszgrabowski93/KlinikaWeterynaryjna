@@ -37,8 +37,8 @@
             zaakceptujButton = new Button();
             anulujButton = new Button();
             gatunekListBox = new ListBox();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            dataOstWizytyTextBox = new TextBox();
+            wlascicielTextBox = new TextBox();
             SuspendLayout();
             // 
             // label1
@@ -124,27 +124,27 @@
             gatunekListBox.TabIndex = 11;
             gatunekListBox.SelectedIndexChanged += listBox1_SelectedIndexChanged;
             // 
-            // textBox1
+            // dataOstWizytyTextBox
             // 
-            textBox1.Location = new Point(116, 192);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(258, 25);
-            textBox1.TabIndex = 12;
+            dataOstWizytyTextBox.Location = new Point(116, 195);
+            dataOstWizytyTextBox.Name = "dataOstWizytyTextBox";
+            dataOstWizytyTextBox.Size = new Size(258, 25);
+            dataOstWizytyTextBox.TabIndex = 12;
             // 
-            // textBox2
+            // wlascicielTextBox
             // 
-            textBox2.Location = new Point(116, 242);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(258, 25);
-            textBox2.TabIndex = 13;
+            wlascicielTextBox.Location = new Point(116, 237);
+            wlascicielTextBox.Name = "wlascicielTextBox";
+            wlascicielTextBox.Size = new Size(258, 25);
+            wlascicielTextBox.TabIndex = 13;
             // 
             // DodajEdytujZwierze
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(423, 372);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(wlascicielTextBox);
+            Controls.Add(dataOstWizytyTextBox);
             Controls.Add(gatunekListBox);
             Controls.Add(anulujButton);
             Controls.Add(zaakceptujButton);
@@ -176,9 +176,7 @@
         private Button zaakceptujButton;
         private Button anulujButton;
         private ListBox gatunekListBox;
-        private ListBox wlascicielListBox;
-        private DateTimePicker dataOstWizytyTimePicker;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox dataOstWizytyTextBox;
+        private TextBox wlascicielTextBox;
     }
 }
