@@ -69,20 +69,46 @@ namespace KlinikaWeterynaryjna
                 return;
             }
 
+
+
+
             using var con = new SqlConnection(Constants.ConnectionString);
             var com = new SqlCommand();
             com.Connection = con;
             com.CommandText = "Insert into Zwierzeta(Nazwa,Gatunek,DataOstWizyty,IdWlasciciel) VALUES (@Nazwa, @Gatunek, @DataOstWizyty, @IdWlasciciel)";
 
 
-            int idWlasciciela = Convert.ToInt32(wlascicielTextBox.Text);
-            var dateTime = DateTime.Parse(dataOstWizytyTextBox.Text);
-            string sqlFormattedDate = dateTime.ToString("yyyy-MM-dd");
+            //string idWlascicielaString = Convert.ToInt32(wlascicielTextBox.Text);
+            string idWlascicielaString = wlascicielTextBox.Text;
+            
+
+            if (int.TryParse(idWlascicielaString, out int idWlasciciela))
+            {
+
+            }
+            else
+            {
+                MessageBox.Show("Podano nieprawidłowy numer id właściciela.");
+                return;
+            }
+
+            string inputDateString = dataOstWizytyTextBox.Text;
+            DateTime dDate;
+            
+            if (DateTime.TryParse(inputDateString, out dDate))
+            {
+                String.Format("{0:d/MM/yyyy}", dDate);
+            }
+            else
+            {
+                MessageBox.Show("Podano nieprawidłowy format daty. Proszę podać datę: DD.MM.YYYY");
+                return;
+            }
 
 
             com.Parameters.AddWithValue("@Nazwa", nazwaTextBox.Text);
             com.Parameters.AddWithValue("@Gatunek", gatunekListBox.Text);
-            com.Parameters.AddWithValue("@DataOstWizyty", sqlFormattedDate);
+            com.Parameters.AddWithValue("@DataOstWizyty", dDate);
             com.Parameters.AddWithValue("@IdWlasciciel", idWlasciciela);
 
             con.Open();
