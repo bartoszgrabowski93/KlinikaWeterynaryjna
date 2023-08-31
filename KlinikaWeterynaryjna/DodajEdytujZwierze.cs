@@ -41,14 +41,13 @@ namespace KlinikaWeterynaryjna
             con.Open();
             SqlDataReader dr = com.ExecuteReader();
 
-            var listaGatunkow = new List<Zwierze>();
+            var listaGatunkow = new List<String>();
             while (dr.Read() == true)
             {
                 string gatunek = dr["Gatunek"].ToString();
-                var gatunekZwierzecia = new Zwierze();
-                gatunekZwierzecia.Gatunek = gatunek;
-                listaGatunkow.Add(gatunekZwierzecia);
+                listaGatunkow.Add(gatunek);
             }
+            
             gatunekListBox.DataSource = listaGatunkow;
         }
 
