@@ -1,3 +1,4 @@
+using KlinikaWeterynaryjna.Models2;
 using System.Data.SqlClient;
 
 namespace KlinikaWeterynaryjna
@@ -23,6 +24,27 @@ namespace KlinikaWeterynaryjna
                 return;
             }
 
+            Pd4036Context dbContext = new Pd4036Context();
+
+            var uzytkownicy = from u in dbContext.Uzytkownicy
+                              where u.Login == loginTextBox.Text
+                              && u.Haslo == hasloTextBox.Text
+                              select w;
+            if (uzytkownicy =! null)
+            {
+                MessageBox.Show("Zalogowano");
+                var glowneOkno = new TabelaZDanymi(loginTextBox.Text);
+                glowneOkno.Show();
+                var oknoLogowania = new LoginScreen();
+                oknoLogowania.Close()
+            }
+            else
+            {
+                MessageBox.Show("Niepoprawny login i/lub haslo");
+            }
+              
+
+            /*
             using SqlConnection con = new SqlConnection(Constants.ConnectionString);
 
             string sql = "Select * from Uzytkownicy where login=@login and haslo=@haslo";
@@ -32,7 +54,7 @@ namespace KlinikaWeterynaryjna
             com.CommandText = sql;
             com.Parameters.AddWithValue("@login", loginTextBox.Text);
             com.Parameters.AddWithValue("@haslo", hasloTextBox.Text);
-
+            
             con.Open();
 
             SqlDataReader dr = com.ExecuteReader();
@@ -51,7 +73,7 @@ namespace KlinikaWeterynaryjna
                 MessageBox.Show("Niepoprawny login i/lub haslo");
 
             }
-
+            */
 
         }
 
